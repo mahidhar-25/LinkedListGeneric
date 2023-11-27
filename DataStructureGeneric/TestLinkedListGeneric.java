@@ -56,4 +56,29 @@ public class TestLinkedListGeneric {
         LinkedlistGeneric<Integer>.Node<Integer> currentNode = nodeToInsertAfter.next;
         assertEquals((Integer) 4, currentNode.data);
     }
+
+    /*
+    @desc :
+     * Tests the `popByKey` method of the LinkedlistGeneric class.
+     *
+     * This test case verifies that the `popByKey` method correctly removes the node with the specified key from the linked list
+     * and returns its data.
+     */
+    @Test
+    public void testPopByKey() {
+        // Step 1: Create a linked list and insert nodes (1, 2, 3)
+        LinkedlistGeneric<Integer> linkedList = new LinkedlistGeneric<>();
+        linkedList.insertAtEnd(1);
+        linkedList.insertAtEnd(2);
+        linkedList.insertAtEnd(3);
+
+        // Step 2: Call the method to pop the node with key 2
+        Integer poppedData = linkedList.popByKey(2);
+
+        // Step 3: Validate the result
+        assertEquals((Integer) 2, poppedData);
+
+        // Step 4: Validate that the node with key 2 is no longer present in the linked list
+        assertEquals(2 , linkedList.size());
+    }
 }

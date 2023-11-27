@@ -158,6 +158,39 @@ public class LinkedlistGeneric<T> {
     }
 
     /*
+     @desc : delete the  element based on the key given if it is not null.
+
+     @param : no params.
+
+     @return : returns the deleted value.
+
+     */
+    public T popByKey( T key){
+        T data = null;
+        Node<T> currNode = head, prev = null;
+
+        if (currNode != null && currNode.data == key) {
+            data = (T)head.data;
+            head = currNode.next;
+        }
+        while (currNode != null && currNode.data != key) {
+            prev = currNode;
+            currNode = currNode.next;
+        }
+
+        if (currNode != null) {
+            data = (T)currNode.data;
+            prev.next = currNode.next;
+        }
+
+        if (currNode == null) {
+            System.out.println(key + " not found");
+        }
+        return data;
+
+    }
+
+    /*
 
     @desc :  This method traverses the linked list and find the node with given data key.
 
@@ -167,7 +200,7 @@ public class LinkedlistGeneric<T> {
 */
     public Node<T> search(T val){
         Node<T> currNode = head;
-        while (currNode.data != val && currNode != null) {
+        while ( currNode != null && currNode.data != val) {
             currNode = currNode.next;
         }
         return currNode;
@@ -209,6 +242,22 @@ public class LinkedlistGeneric<T> {
         }
         System.out.println();
     }
+
+    /*
+    @desc : it gives the size of the linkes list
+    @param : no params
+    @return : returns an integer
+     */
+    public int size(){
+        int count =0;
+        Node<T> currNode = head;
+        while (currNode != null) {
+            count++;
+            currNode = currNode.next;
+        }
+        return count;
+    }
+
 
     public static void main(String[] args) {
 
@@ -252,6 +301,9 @@ public class LinkedlistGeneric<T> {
         }
         LinkedlistGeneric<Integer>.Node<Integer>node = newLinkedList.search(100);
         newLinkedList.insertAfterNode(node , 57);
+        newLinkedList.printList();
+
+        newLinkedList.popByKey(100);
         newLinkedList.printList();
 
     }
