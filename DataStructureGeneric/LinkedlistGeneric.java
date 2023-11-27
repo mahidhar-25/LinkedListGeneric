@@ -112,6 +112,26 @@ public class LinkedlistGeneric<T> {
         }
     }
 
+       /*
+
+ @desc : delete the first element if it is not null.
+
+ @param : no params.
+
+ @return : returns the deleted value.
+
+ */
+
+    public T pop(){
+        T data = null;
+        if(head != null){
+            data = (T) head.data;
+            head = head.next;
+
+        }
+        return data;
+    }
+
 
     /*
 
@@ -160,6 +180,10 @@ public class LinkedlistGeneric<T> {
 
         newLinkedList.insertByPosition(100 , 3);
         //56 -> 30 -> 70 -> 100 -> 56 -> 30 -> 70
+        newLinkedList.printList();
+
+        System.out.println("deleted item is : " + newLinkedList.pop());
+        //30 -> 70 -> 100 -> 56 -> 30 -> 70
         newLinkedList.printList();
     }
 
