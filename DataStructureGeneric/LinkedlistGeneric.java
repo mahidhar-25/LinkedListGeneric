@@ -156,6 +156,22 @@ public class LinkedlistGeneric<T> {
         }
         return data;
     }
+
+    /*
+
+    @desc :  This method traverses the linked list and find the node with given data key.
+
+    @param :  Type T , val.
+
+    @return :  It returns a node.
+*/
+    public Node<T> search(T val){
+        Node<T> currNode = head;
+        while (currNode.data != val && currNode != null) {
+            currNode = currNode.next;
+        }
+        return currNode;
+    }
     /*
 
         @desc :  This method traverses the linked list and prints each element.
@@ -211,6 +227,10 @@ public class LinkedlistGeneric<T> {
         System.out.println("deleted item last is : " + newLinkedList.popLast());
         //30 -> 70 -> 100 -> 56 -> 30
         newLinkedList.printList();
+
+        if(newLinkedList.search(100) != null){
+            System.out.println("element is present in linked list");
+        }
     }
 
 }
