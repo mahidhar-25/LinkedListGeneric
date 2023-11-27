@@ -51,6 +51,47 @@ public class LinkedlistGeneric<T> {
 
     /*
 
+ @desc : Inserts a new element with the specified value at the position specified of the linked list of given type T.
+
+ @param val The value to be inserted of type T.
+ @param position the position to be inserted of type integer
+
+ @return No explicit return value.
+
+ */
+    public  void insertByPosition(T val , int position){
+        Node<T> latestNode = new Node<T>(val);
+        Node<T> nextNode = null;
+        latestNode.next = null;
+
+        if(head == null){
+            head = latestNode;
+        }else if(position==0){
+            Node<T> temp = head;
+            head = latestNode;
+            latestNode.next = temp;
+        }else{
+            Node<T> last = head;
+            int counter=1;
+            while(last.next != null){
+                if(counter == position){
+                    nextNode = last.next;
+                    break;
+                }
+                counter++;
+                last = last.next;
+            }
+            if(position > counter){
+                System.out.println("your entered position " + position + " is more than the linked list size");
+                System.out.println("So we are adding at last");
+            }
+            last.next = latestNode;
+            latestNode.next = nextNode;
+        }
+    }
+
+    /*
+
  @desc : Inserts a new element with the specified value at the beginning of the linked list of given type T.
 
  @param val The value to be inserted of type T.
@@ -115,6 +156,10 @@ public class LinkedlistGeneric<T> {
         newLinkedList.printList();
         newLinkedList.insertAtEnd(70);
         //56 -> 30 -> 70 -> 56 -> 30 -> 70
+        newLinkedList.printList();
+
+        newLinkedList.insertByPosition(100 , 3);
+        //56 -> 30 -> 70 -> 100 -> 56 -> 30 -> 70
         newLinkedList.printList();
     }
 
