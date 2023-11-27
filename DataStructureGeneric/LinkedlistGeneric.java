@@ -11,7 +11,7 @@ public class LinkedlistGeneric<T> {
     @desc : Class node is a generic class it contains and data and a next pointer of type T which we initialize
 
      */
-    class Node<T>{
+    public class Node<T>{
         T data;
         Node<T> next;
         /*
@@ -172,6 +172,25 @@ public class LinkedlistGeneric<T> {
         }
         return currNode;
     }
+
+    /*
+    @desc :  Inserts a new node with the given data after the specified node.
+    @param node The node after which the new node will be inserted.
+    @param data The data to be inserted into the new node.
+    @return void
+     */
+     public void insertAfterNode(Node<T> node , T data){
+         Node<T> latestNode = new Node<T>(data);
+         latestNode.next = null;
+        if(node != null){
+            Node<T> currNode = head;
+            while (currNode != node) {
+                currNode = currNode.next;
+            }
+            latestNode.next = currNode.next;
+            currNode.next = latestNode;
+        }
+     }
     /*
 
         @desc :  This method traverses the linked list and prints each element.
@@ -231,6 +250,10 @@ public class LinkedlistGeneric<T> {
         if(newLinkedList.search(100) != null){
             System.out.println("element is present in linked list");
         }
+        LinkedlistGeneric<Integer>.Node<Integer>node = newLinkedList.search(100);
+        newLinkedList.insertAfterNode(node , 57);
+        newLinkedList.printList();
+
     }
 
 }
