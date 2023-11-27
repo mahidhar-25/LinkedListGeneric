@@ -48,6 +48,30 @@ public class LinkedlistGeneric<T> {
             last.next = latestNode;
         }
     }
+
+    /*
+
+ @desc : Inserts a new element with the specified value at the beginning of the linked list of given type T.
+
+ @param val The value to be inserted of type T.
+
+ @return No explicit return value.
+
+ */
+
+    public void insertAtBegin(T val){
+        Node<T> latestNode = new Node<T>(val);
+        latestNode.next = null;
+        if(head == null){
+            head = latestNode;
+        }else{
+            Node<T> last = head;
+            head = latestNode;
+            head.next = last;
+        }
+    }
+
+
     /*
 
         @desc :  This method traverses the linked list and prints each element.
@@ -74,11 +98,13 @@ public class LinkedlistGeneric<T> {
         //initialized a integer link list
         LinkedlistGeneric<Integer> newLinkedList = new LinkedlistGeneric<>();
 
-        newLinkedList.insert(56);
+        newLinkedList.insertAtBegin(70);
         newLinkedList.printList();
-        newLinkedList.insert(30);
+        newLinkedList.insertAtBegin(30);
+        //30 -> 70
         newLinkedList.printList();
-        newLinkedList.insert(70);
+        newLinkedList.insertAtBegin(56);
+        //56 -> 30 -> 70
         newLinkedList.printList();
     }
 
