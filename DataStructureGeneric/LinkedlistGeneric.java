@@ -132,7 +132,30 @@ public class LinkedlistGeneric<T> {
         return data;
     }
 
+/*
+ @desc : delete the last element if it is not null.
 
+ @param : no params.
+
+ @return : returns the deleted value.
+
+ */
+
+    public T popLast(){
+        T data = null;
+        if(head != null){
+            Node<T> last = head;
+            Node<T> curr = last;
+            while(last.next != null){
+                curr = last;
+                last = last.next;
+
+            }
+            data = curr.next.data;
+            curr.next = null;
+        }
+        return data;
+    }
     /*
 
         @desc :  This method traverses the linked list and prints each element.
@@ -182,8 +205,11 @@ public class LinkedlistGeneric<T> {
         //56 -> 30 -> 70 -> 100 -> 56 -> 30 -> 70
         newLinkedList.printList();
 
-        System.out.println("deleted item is : " + newLinkedList.pop());
+        System.out.println("deleted item first is : " + newLinkedList.pop());
         //30 -> 70 -> 100 -> 56 -> 30 -> 70
+        newLinkedList.printList();
+        System.out.println("deleted item last is : " + newLinkedList.popLast());
+        //30 -> 70 -> 100 -> 56 -> 30
         newLinkedList.printList();
     }
 
