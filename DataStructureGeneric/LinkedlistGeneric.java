@@ -35,7 +35,7 @@ public class LinkedlistGeneric<T> {
 
  */
 
-    public void insert(T val){
+    public void insertAtEnd(T val){
         Node<T> latestNode = new Node<T>(val);
         latestNode.next = null;
         if(head == null){
@@ -105,6 +105,16 @@ public class LinkedlistGeneric<T> {
         newLinkedList.printList();
         newLinkedList.insertAtBegin(56);
         //56 -> 30 -> 70
+        newLinkedList.printList();
+
+        newLinkedList.insertAtEnd(56);
+        //56 -> 30 -> 70 -> 56
+        newLinkedList.printList();
+        newLinkedList.insertAtEnd(30);
+        //56 -> 30 -> 70 -> 56-> 30
+        newLinkedList.printList();
+        newLinkedList.insertAtEnd(70);
+        //56 -> 30 -> 70 -> 56 -> 30 -> 70
         newLinkedList.printList();
     }
 
