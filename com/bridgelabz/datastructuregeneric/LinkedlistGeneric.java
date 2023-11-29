@@ -1,29 +1,13 @@
 
 
-package DataStructureGeneric;
+package com.bridgelabz.datastructuregeneric;
 
 
 public class LinkedlistGeneric<T extends Comparable<T>> {
 
     Node<T> head;
-    //initialization of a node
-    /*
-    @desc : Class node is a generic class it contains and data and a next pointer of type T which we initialize
 
-     */
-    public class Node<T>{
-        T data;
-        Node<T> next;
-        /*
-        @desc : constructor initializing node with value d of type T(object)
-        @param - T(Type object primitive) - data
-        @return : no return
-         */
-        Node(T data){
-            this.data = data;
-            next = null;
-        }
-    }
+
 
 /*
 
@@ -338,7 +322,7 @@ public class LinkedlistGeneric<T extends Comparable<T>> {
             System.out.println("element is present in linked list");
         }
         //usecase 8
-        LinkedlistGeneric<Integer>.Node<Integer>node = newLinkedList.search(100);
+        Node<Integer>node = newLinkedList.search(100);
         newLinkedList.insertAfterNode(node , 57);
         newLinkedList.printList();
 //usecase 9
